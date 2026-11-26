@@ -9,7 +9,11 @@
 
     <h1>Employee Management System</h1>
 
-    <input type="text" placeholder="Enter Employee Name"> <button>Search</button>
+        <input type="text" id="searchInput" placeholder="">
+        <button id="search">Search</button>
+        <button id="disableBtn">Disable</button>
+        <button id="enableBtn">Enable</button>
+
     
     <table>
         <thead>
@@ -66,40 +70,28 @@
         </tbody>
     </table>
 
-    <button type="button" onclick="department()">Show IT Employees</button>
-    <button type="button" onclick="high()">Show IT Employees</button>
+<button type="button" onclick="departmentw()">Show IT Employees</button> <br>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<button type="button" onclick="highsalary()">Show High Salary Employees</button><br>
 
 
 
 
 <h3 id="greater"></h3>
 <h3 id="init"></h3>
-    <!-- <h3 id="display"></h3>
-    <h3 id="uppercase"></h3>
+<div id="searchResult"></div>
+<body>
+
+    <h1>Employee Management System</h1>
+
+    <div id="employeeList"></div>
+
+    <script type="module" src="./app.js"></script>
+
+</body>
     
-    
-    <h3 id="fals"></h3>
-    <h3 id="first"></h3>
-    <h3 id="copp"></h3>
-    <h3 id="destr"></h3> -->
-    <script src="./script.js"></script>
+    <script  src="./script.js"></script>
+
+    <!-- <script type="module" src="./app.js"></script> -->
 </body>
 </html>

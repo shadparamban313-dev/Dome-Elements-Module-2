@@ -38,17 +38,71 @@ let employees = [
 // let [first]=employees
 // document.getElementById("destr").innerHTML = `<p>name:${first.name},age:${first.age},Salary:${first.salary}</p>`;
 
-function department(){
-    let init = employees.filter((employees)=>employees.department=="IT")
-    document.getElementById("init").innerHTML = init.map(employees => `<p>${employees.name} - ${employees.department}</p>`).join("")
+// function departmentw(){
+//     console.log(working)
+//     let init = employees.filter((employees)=>employees.department==="IT")
+//     document.getElementById("init").innerHTML = init.map(employees => `<p>${employees.name} - ${employees.department}</p>`).join("")
+//     console.log(init);
+    
 
-}
-function high(){
+// }
+
+function highsalary(){
     let values = employees.filter((employees)=>employees.salary>25000)
     document.getElementById("greater").innerHTML = values.map(employees => `<p>${employees.name} - ${employees.salary}</p>`).join("")
 
 }
 
+
+function departmentw() {
+    const itEmployees = employees.filter((emp) => emp.department === "IT");
+    document.getElementById("init").innerHTML = `<h3>IT Employees:</h3>` + itEmployees.map(emp => `<p>${emp.name} - ${emp.department}</p>`).join("");
+}
+const searchInput = document.getElementById("searchInput");
+const searchResult = document.getElementById("searchResult");
+
+function searchEmployee(name) {
+    return employees.find(emp => emp.name.toLowerCase() === name.toLowerCase());
+}
+
+document.getElementById("search").addEventListener("click", () => {
+    const name = searchInput.value.trim();
+    const employee = searchEmployee(name);
+
+    if (employee) {
+        searchResult.innerHTML = `
+            <h3>${employee.name}</h3>
+            <p>ID: ${employee.id}</p>
+            <p>Age: ${employee.age}</p>
+            <p>Salary: ${employee.salary}</p>
+            <p>Department: ${employee.department}</p>
+            <p>Status: ${employee.active ? "Active" : "Inactive"}</p>
+        `;
+    } else {
+        searchResult.innerHTML = "Employee not found!";
+    }
+});
+
+let place =document.getElementById("searchInput")
+let placeholder=place.getAttribute("placeholder")
+place.setAttribute("placeholder","Enter Employee Name")
+
+
+let myButton = document.getElementById("searchInput");
+let mysearch = document.getElementById("search");
+let disableBtn = document.getElementById("disableBtn");
+let enableBtn = document.getElementById("enableBtn");
+
+disableBtn.addEventListener("click", function () {
+    myButton.disabled = true;
+    mysearch.disabled = true;
+
+});
+
+enableBtn.addEventListener("click", function () {
+    myButton.disabled = false;
+     mysearch.disabled = false;
+});
 
 
 
